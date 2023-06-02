@@ -1,0 +1,1154 @@
+{
+	"info": {
+		"_postman_id": "0ee111d6-6602-4515-908a-846fef034f16",
+		"name": "quester",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22954544"
+	},
+	"item": [
+		{
+			"name": "评论接口",
+			"item": [
+				{
+					"name": "添加/回复 评论",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJnZW5kZXIiOjAsIm5pY2tOYW1lIjoiUiZCIiwiaWQiOjIsImF2YXRhciI6Imh0dHA6Ly9odWFsdW9zYWt1cmEudG9wL2RiZTdkMmE1OWJiNDQ0YjZiM2RjMjEzZGJhNTVmOWI4MTY2NzIwMDczNjQ4Ny5qcGciLCJ1c2VyTmFtZSI6ImZjOGM3MDU0ODdiNzRjODc4YTU2YTA4NjQ1YmNhZmRlIiwiZW1haWwiOiIyMzIxMzE2MDI4QHFxLmNvbSIsImludHJvZHVjdGlvbiI6IumGieWNp-aymeWcuuWQm-iOq-eske-8jOWPpOadpeernui1m-WHoOS6uuWbnuOAgiIsInN0YXR1cyI6MCwianRpIjoiMiIsInN1YiI6ImZjOGM3MDU0ODdiNzRjODc4YTU2YTA4NjQ1YmNhZmRlIiwiZXhwIjoxNjY3MzI3NTkwfQ.0xHC2jHTM42wstjWFHGwGJfUC4aGdsosHubvO_W4BAI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\": \"answer\",\r\n    \"typeId\": 2,\r\n    \"rootId\": 5,\r\n    \"content\": \"用户1的子评论测试\",\r\n    \"toCommentUserId\": 1,\r\n    \"toCommentId\": 5,\r\n    \"toCommentNickname\": \"R&B\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/comment/add",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"comment",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查询回答或文章评论（不分页）",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJwaG9uZU51bWJlciI6IjE1MTczNjIzMTQ1IiwiZ2VuZGVyIjowLCJjcmVhdGVUaW1lIjoxNjY3MDYxODA3MDAwLCJuaWNrTmFtZSI6IuahnOiKseiQvSIsImJnSW1nIjoiaHR0cDovL2h1YWx1b3Nha3VyYS50b3AvZGEzODlmNjdhOGZhNDNmMGIzZWIzNzY0MDljOTRiMzMlRTYlOTglOUYlRTklOTklODUlRTclQTklQkYlRTglQjYlOEEwNC5wbmciLCJpZCI6MSwiYXZhdGFyIjoiaHR0cDovL2h1YWx1b3Nha3VyYS50b3AvN2JjYmFhYTU5ZDA3NDdjNWE0NDg2MTlmNGFlOWY2NjflpI_nm64uanBnIiwidXNlck5hbWUiOiI1ZGI5YWY0ZDVmZGM0YzdjYWNkNTRiZDVmMTBlMWJlMCIsImVtYWlsIjoiaHVhbHVvc2FrdXJhQDE2My5jb20iLCJpbnRyb2R1Y3Rpb24iOiLkvYbooYzlpb3kuovvvIzojqvpl67liY3nqIsiLCJzdGF0dXMiOjAsImp0aSI6IjEiLCJzdWIiOiI1ZGI5YWY0ZDVmZGM0YzdjYWNkNTRiZDVmMTBlMWJlMCIsImV4cCI6MTY2ODAwNzYzNH0.Ug8Pg7Bo1CqBV5l2cDTNJMkYzjQQngHk7trzzcONAG4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "101.43.235.136:8080/comment/list?type=answer&type_id=1",
+							"host": [
+								"101",
+								"43",
+								"235",
+								"136"
+							],
+							"port": "8080",
+							"path": [
+								"comment",
+								"list"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "answer"
+								},
+								{
+									"key": "type_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "文章接口",
+			"item": [
+				{
+					"name": "查询指定用户id文章",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "101.43.235.136:8080/article/all/1",
+							"host": [
+								"101",
+								"43",
+								"235",
+								"136"
+							],
+							"port": "8080",
+							"path": [
+								"article",
+								"all",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查询文章详细",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "101.43.235.136:8080/article/detail/1",
+							"host": [
+								"101",
+								"43",
+								"235",
+								"136"
+							],
+							"port": "8080",
+							"path": [
+								"article",
+								"detail",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "写文章",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJwaG9uZU51bWJlciI6IjE1MTczNjIzMTQ1IiwiZ2VuZGVyIjowLCJjcmVhdGVUaW1lIjoxNjY3MDYxODA3MDAwLCJuaWNrTmFtZSI6IuahnOiKseiQvSIsImJnSW1nIjoiaHR0cDovL2h1YWx1b3Nha3VyYS50b3AvZGEzODlmNjdhOGZhNDNmMGIzZWIzNzY0MDljOTRiMzMlRTYlOTglOUYlRTklOTklODUlRTclQTklQkYlRTglQjYlOEEwNC5wbmciLCJpZCI6MSwiYXZhdGFyIjoiaHR0cDovL2h1YWx1b3Nha3VyYS50b3AvN2JjYmFhYTU5ZDA3NDdjNWE0NDg2MTlmNGFlOWY2NjflpI_nm64uanBnIiwidXNlck5hbWUiOiI1ZGI5YWY0ZDVmZGM0YzdjYWNkNTRiZDVmMTBlMWJlMCIsImVtYWlsIjoiaHVhbHVvc2FrdXJhQDE2My5jb20iLCJpbnRyb2R1Y3Rpb24iOiLkvYbooYzlpb3kuovvvIzojqvpl67liY3nqIsiLCJzdGF0dXMiOjAsImp0aSI6IjEiLCJzdWIiOiI1ZGI5YWY0ZDVmZGM0YzdjYWNkNTRiZDVmMTBlMWJlMCIsImV4cCI6MTY2ODAwNDU4Mn0.W4_IMnAq1T8WzhsPwB_jmFC2drOwRiDT0udxQEpaKZo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tittle\": \"写文章测试\",\r\n    \"content\": \"写文章测试\",\r\n    \"bgImg\": \"https://pica.zhimg.com/v2-258faad836955898f7e00f139bf43207_1440w.jpg?source=172ae18b\",\r\n    \"summary\": \"\",\r\n    \"status\": 0,\r\n    \"isTop\": 0,\r\n    \"isCommented\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/article/write",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"article",
+								"write"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "登录注册接口",
+			"item": [
+				{
+					"name": "密码登录",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"2272393115@qq.com\",\r\n    \"password\": \"gty20021112\"\r\n}\r\n\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/user/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "注销登录",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJwaG9uZU51bWJlciI6IjEyMzQ1Njc4IiwiZ2VuZGVyIjowLCJjcmVhdGVUaW1lIjoxNjY4MjcyMDQwMDAwLCJuaWNrTmFtZSI6IuWwj-a1o-eGiiIsImJnSW1nIjoiaHR0cDovL2h1YWx1b3Nha3VyYS50b3AvYmFja2dyb3VkL2JhY2tncm91bmQuanBnIiwiaWQiOjIxLCJhdmF0YXIiOiJodHRwOi8vaHVhbHVvc2FrdXJhLnRvcC9hdmF0YXIvZm94LmpwZyIsInVzZXJOYW1lIjoiNDYzOTk0NzhiY2U0NDU3ODgwNDBhNWY1N2FmNzliZDIiLCJlbWFpbCI6IjIyNzIzOTMxMTVAcXEuY29tIiwic3RhdHVzIjowLCJqdGkiOiIyMSIsInN1YiI6IjQ2Mzk5NDc4YmNlNDQ1Nzg4MDQwYTVmNTdhZjc5YmQyIiwiZXhwIjoxNjY4MzU4NjI2fQ.5Y3WzWI-My8rU7tjXwLl2eqs7l8NcBbBjdgvE980DIs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/user/logout",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "邮箱登录",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"hualuosakura@163.com\",\r\n    \"verification\": \"ROWSX\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/user/mail/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"mail",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "发送邮箱验证码",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"hualuosakura@163.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/user/mail/verification",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"mail",
+								"verification"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "邮箱注册",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"hualuosakura@163.com\",\r\n    \"phoneNumber\": \"12345678\",\r\n    \"nickName\": \"小浣熊\",\r\n    \"password\": \"gty20021112\"\r\n}\r\n\r\n\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/user/register",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "激活账号",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/user/active?verification=6JA8A",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"active"
+							],
+							"query": [
+								{
+									"key": "verification",
+									"value": "6JA8A"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "七牛接口",
+			"item": [
+				{
+					"name": "图片上传接口（文本）",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/file/upload",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"file",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "修改头像或背景图片",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/User/Desktop/background.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/file/change/background",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"file",
+								"change",
+								"background"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "删除图片",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "101.43.235.136:8080/file/delete?name=255cca983adc4914ba92301e49e6adf9星际穿越02.png",
+							"host": [
+								"101",
+								"43",
+								"235",
+								"136"
+							],
+							"port": "8080",
+							"path": [
+								"file",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "255cca983adc4914ba92301e49e6adf9星际穿越02.png"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "提问接口",
+			"item": [
+				{
+					"name": "查询热榜提问",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "101.43.235.136:8080/question/hot",
+							"host": [
+								"101",
+								"43",
+								"235",
+								"136"
+							],
+							"port": "8080",
+							"path": [
+								"question",
+								"hot"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查询提问详情（作者，回答）",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJwaG9uZU51bWJlciI6IjE1MTczNjIzMTQ1IiwiZ2VuZGVyIjowLCJjcmVhdGVUaW1lIjoxNjY3MDYxODA3MDAwLCJuaWNrTmFtZSI6IuahnOiKseiQvSIsImJnSW1nIjoiaHR0cDovL2h1YWx1b3Nha3VyYS50b3AvYmFja2dyb3VkL3JpdmVyLmpwZyIsImlkIjoxLCJhdmF0YXIiOiJodHRwOi8vaHVhbHVvc2FrdXJhLnRvcC9hdmF0YXIvJUU1JUE0JThGJUU2JTk3JUE1Mi5qcGciLCJ1c2VyTmFtZSI6IjVkYjlhZjRkNWZkYzRjN2NhY2Q1NGJkNWYxMGUxYmUwIiwiZW1haWwiOiJodWFsdW9zYWt1cmFAMTYzLmNvbSIsImludHJvZHVjdGlvbiI6IuS9huihjOWlveS6i--8jOiOq-mXruWJjeeoiyIsInN0YXR1cyI6MCwianRpIjoiMSIsInN1YiI6IjVkYjlhZjRkNWZkYzRjN2NhY2Q1NGJkNWYxMGUxYmUwIiwiZXhwIjoxNjY5ODY5NTQyfQ.lffhp4OQKuNc0wVyDOxHx7UxgqoOqbtOLjAwG5d3E1A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/question/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"question",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "写提问",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tittle\": \"提问测试\",\r\n    \"content\": \"提问测试\",\r\n    \"bgImg\": \"\",\r\n    \"isAnonymous\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/question/write",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"question",
+								"write"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "根据时间排序查询回答",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJmb2xsb3dDb3VudCI6MywiZ2VuZGVyIjowLCJuaWNrTmFtZSI6IuahnOiKseiQvSIsImJnSW1nIjoiaHR0cDovL2h1YWx1b3Nha3VyYS50b3AvYmFja2dyb3VkL3JpdmVyLmpwZyIsImFydGljbGVDb3VudCI6OCwiYXZhdGFyIjoiaHR0cDovL2h1YWx1b3Nha3VyYS50b3AvYXZhdGFyLyVFNSVBNCU4RiVFNiU5NyVBNTIuanBnIiwidXNlck5hbWUiOiI1ZGI5YWY0ZDVmZGM0YzdjYWNkNTRiZDVmMTBlMWJlMCIsInBob25lTnVtYmVyIjoiMTUxNzM2MjMxNDUiLCJhbnN3ZXJDb3VudCI6MiwiY3JlYXRlVGltZSI6MTY2NzA2MTgwNzAwMCwiaWQiOjEsImVtYWlsIjoiaHVhbHVvc2FrdXJhQDE2My5jb20iLCJpbnRyb2R1Y3Rpb24iOiLkvYbooYzlpb3kuovvvIzojqvpl67liY3nqIsiLCJzdGF0dXMiOjAsImZhdm9yaXRlQ291bnQiOjIsImp0aSI6IjEiLCJzdWIiOiI1ZGI5YWY0ZDVmZGM0YzdjYWNkNTRiZDVmMTBlMWJlMCIsImV4cCI6MTY3MTUwODQyMH0.ChYn-T0aVS4ueKAgTKFvgJMc_f6T9IKJUoexQ_N8o8A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/question/time/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"question",
+								"time",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "回答接口",
+			"item": [
+				{
+					"name": "回答点赞",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/answer/approve/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"answer",
+								"approve",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "添加（某个提问）的回答",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJwaG9uZU51bWJlciI6IjEzOTc1NjQxMTI0IiwiZ2VuZGVyIjowLCJjcmVhdGVUaW1lIjoxNjY3MDYxODA3MDAwLCJuaWNrTmFtZSI6IuahnOiKseiQvSIsImJnSW1nIjoiaHR0cDovL2h1YWx1b3Nha3VyYS50b3AvZGEzODlmNjdhOGZhNDNmMGIzZWIzNzY0MDljOTRiMzMlRTYlOTglOUYlRTklOTklODUlRTclQTklQkYlRTglQjYlOEEwNC5wbmciLCJpZCI6MSwiYXZhdGFyIjoiaHR0cDovL2h1YWx1b3Nha3VyYS50b3AvMTJlOTI4MzBkZDNkNDAyNDg3N2Y3N2RjMzU2ZWI0YzAlRTUlQTQlOEYlRTclOUIlQUUuanBnIiwidXNlck5hbWUiOiI1ZGI5YWY0ZDVmZGM0YzdjYWNkNTRiZDVmMTBlMWJlMCIsImVtYWlsIjoiaHVhbHVvc2FrdXJhQDE2My5jb20iLCJpbnRyb2R1Y3Rpb24iOiLkvYbooYzlpb3kuovvvIzojqvpl67liY3nqIvjgIIiLCJzdGF0dXMiOjAsImp0aSI6IjEiLCJzdWIiOiI1ZGI5YWY0ZDVmZGM0YzdjYWNkNTRiZDVmMTBlMWJlMCIsImV4cCI6MTY2NzM2OTY2MH0.VF1_5koTQ5h7VImRYVBoo-WdwvFVFxmHlxX1rcqPung",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"questionId\": 3,\r\n    \"content\": \"回答测试\",\r\n    \"isAnonymous\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/answer/write",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"answer",
+								"write"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "写回答",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJwaG9uZU51bWJlciI6IjEzOTc1NjQxMTI0IiwiZ2VuZGVyIjowLCJjcmVhdGVUaW1lIjoxNjY3MjI5MTI4MDAwLCJuaWNrTmFtZSI6IlImQiIsImlkIjoyLCJhdmF0YXIiOiJodHRwOi8vaHVhbHVvc2FrdXJhLnRvcC9kYmU3ZDJhNTliYjQ0NGI2YjNkYzIxM2RiYTU1ZjliODE2NjcyMDA3MzY0ODcuanBnIiwidXNlck5hbWUiOiJmYzhjNzA1NDg3Yjc0Yzg3OGE1NmEwODY0NWJjYWZkZSIsImVtYWlsIjoiMjMyMTMxNjAyOEBxcS5jb20iLCJpbnRyb2R1Y3Rpb24iOiLphonljafmspnlnLrlkJvojqvnrJHvvIzlj6TmnaXnq57otZvlh6Dkurrlm57jgIIiLCJzdGF0dXMiOjAsImp0aSI6IjIiLCJzdWIiOiJmYzhjNzA1NDg3Yjc0Yzg3OGE1NmEwODY0NWJjYWZkZSIsImV4cCI6MTY2ODI0MzY1M30.KpG9BKCETEUyoFvc3sJJIW1RO44GmrFoO4yQiBQyD1s",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"questionId\": 3,\r\n    \"content\": \"这是又一条回答测试\",\r\n    \"isAnonymous\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/answer/write",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"answer",
+								"write"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "个人信息接口",
+			"item": [
+				{
+					"name": "获取个人主页信息",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/user/info/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"info",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "编辑个人信息",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJmb2xsb3dDb3VudCI6MiwiZ2VuZGVyIjowLCJuaWNrTmFtZSI6IuWwj-a1o-eGiiIsImJnSW1nIjoiaHR0cDovL2h1YWx1b3Nha3VyYS50b3AvYmFja2dyb3VuZC8lRTYlQUYlOEYlRTYlOTclQTUlRTQlQjglODAlRTUlOUIlQkUxLmpwZyIsImFydGljbGVDb3VudCI6MCwiYXZhdGFyIjoiaHR0cDovL2h1YWx1b3Nha3VyYS50b3AvYXZhdGFyL2ZveC5qcGciLCJ1c2VyTmFtZSI6ImEzYTJmYWU1NTUzOTRmMjc4MDM4YzAwNThmNWM5ZDE5IiwicGhvbmVOdW1iZXIiOiIxMjM0NTY3OCIsImFuc3dlckNvdW50IjoyLCJjcmVhdGVUaW1lIjoxNjY4Mjc0MDUyMDAwLCJpZCI6MywiZW1haWwiOiIyMjcyMzkzMTE1QHFxLmNvbSIsInN0YXR1cyI6MCwiZmF2b3JpdGVDb3VudCI6MSwianRpIjoiMyIsInN1YiI6ImEzYTJmYWU1NTUzOTRmMjc4MDM4YzAwNThmNWM5ZDE5IiwiZXhwIjoxNjg1MTk3NTM1fQ.gGJpci-75IcuhHHqCxBbcnLvJcsZM6YVzbWh9Ik6s5E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 3,\r\n    \"nickName\": \"小浣熊\",\r\n    \"email\": \"2242318779@qq.com\",\r\n    \"phoneNumber\": \"1234567\",\r\n    \"gender\": 0,\r\n    \"introduction\": \"这是个人简介\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/user/info/edit",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"info",
+								"edit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "关注",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJwaG9uZU51bWJlciI6IjEzOTc1NjQxMTI0IiwiZ2VuZGVyIjowLCJjcmVhdGVUaW1lIjoxNjY3MjI5MTI4MDAwLCJuaWNrTmFtZSI6IlImQiIsImlkIjoyLCJhdmF0YXIiOiJodHRwOi8vaHVhbHVvc2FrdXJhLnRvcC9kYmU3ZDJhNTliYjQ0NGI2YjNkYzIxM2RiYTU1ZjliODE2NjcyMDA3MzY0ODcuanBnIiwidXNlck5hbWUiOiJmYzhjNzA1NDg3Yjc0Yzg3OGE1NmEwODY0NWJjYWZkZSIsImVtYWlsIjoiMjMyMTMxNjAyOEBxcS5jb20iLCJpbnRyb2R1Y3Rpb24iOiLphonljafmspnlnLrlkJvojqvnrJHvvIzlj6TmnaXnq57otZvlh6Dkurrlm57jgIIiLCJzdGF0dXMiOjAsImp0aSI6IjIiLCJzdWIiOiJmYzhjNzA1NDg3Yjc0Yzg3OGE1NmEwODY0NWJjYWZkZSIsImV4cCI6MTY2ODE5MDIzNX0.DRqNnAm6HDXDaEktvneNpaLuh045mWZ3DIfPAxMkNiE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "101.43.235.136:8080/follow/1007",
+							"host": [
+								"101",
+								"43",
+								"235",
+								"136"
+							],
+							"port": "8080",
+							"path": [
+								"follow",
+								"1007"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "取消关注",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJwaG9uZU51bWJlciI6IjEzOTc1NjQxMTI0IiwiZ2VuZGVyIjowLCJjcmVhdGVUaW1lIjoxNjY3MjI5MTI4MDAwLCJuaWNrTmFtZSI6IlImQiIsImlkIjoyLCJhdmF0YXIiOiJodHRwOi8vaHVhbHVvc2FrdXJhLnRvcC9kYmU3ZDJhNTliYjQ0NGI2YjNkYzIxM2RiYTU1ZjliODE2NjcyMDA3MzY0ODcuanBnIiwidXNlck5hbWUiOiJmYzhjNzA1NDg3Yjc0Yzg3OGE1NmEwODY0NWJjYWZkZSIsImVtYWlsIjoiMjMyMTMxNjAyOEBxcS5jb20iLCJpbnRyb2R1Y3Rpb24iOiLphonljafmspnlnLrlkJvojqvnrJHvvIzlj6TmnaXnq57otZvlh6Dkurrlm57jgIIiLCJzdGF0dXMiOjAsImp0aSI6IjIiLCJzdWIiOiJmYzhjNzA1NDg3Yjc0Yzg3OGE1NmEwODY0NWJjYWZkZSIsImV4cCI6MTY2ODE5MDIzNX0.DRqNnAm6HDXDaEktvneNpaLuh045mWZ3DIfPAxMkNiE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/follow/cancel/999",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"follow",
+								"cancel",
+								"999"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "收藏",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJmb2xsb3dDb3VudCI6MiwiZ2VuZGVyIjowLCJuaWNrTmFtZSI6IuWwj-a1o-eGiiIsImJnSW1nIjoiaHR0cDovL2h1YWx1b3Nha3VyYS50b3AvYmFja2dyb3VuZC8lRTYlQUYlOEYlRTYlOTclQTUlRTQlQjglODAlRTUlOUIlQkUxLmpwZyIsImFydGljbGVDb3VudCI6MCwiYXZhdGFyIjoiaHR0cDovL2h1YWx1b3Nha3VyYS50b3AvYXZhdGFyL2ZveC5qcGciLCJ1c2VyTmFtZSI6ImEzYTJmYWU1NTUzOTRmMjc4MDM4YzAwNThmNWM5ZDE5IiwicGhvbmVOdW1iZXIiOiIxMjM0NTY3OCIsImFuc3dlckNvdW50IjoyLCJjcmVhdGVUaW1lIjoxNjY4Mjc0MDUyMDAwLCJpZCI6MywiZW1haWwiOiIyMjcyMzkzMTE1QHFxLmNvbSIsInN0YXR1cyI6MCwiZmF2b3JpdGVDb3VudCI6MSwianRpIjoiMyIsInN1YiI6ImEzYTJmYWU1NTUzOTRmMjc4MDM4YzAwNThmNWM5ZDE5IiwiZXhwIjoxNjg1MTk3NTM1fQ.gGJpci-75IcuhHHqCxBbcnLvJcsZM6YVzbWh9Ik6s5E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/favorite/?type=article&type_id=12",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"favorite",
+								""
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "article"
+								},
+								{
+									"key": "type_id",
+									"value": "12"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "取消收藏",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJmb2xsb3dDb3VudCI6MiwiZ2VuZGVyIjowLCJuaWNrTmFtZSI6IuWwj-a1o-eGiiIsImJnSW1nIjoiaHR0cDovL2h1YWx1b3Nha3VyYS50b3AvYmFja2dyb3VuZC8lRTYlQUYlOEYlRTYlOTclQTUlRTQlQjglODAlRTUlOUIlQkUxLmpwZyIsImFydGljbGVDb3VudCI6MCwiYXZhdGFyIjoiaHR0cDovL2h1YWx1b3Nha3VyYS50b3AvYXZhdGFyL2ZveC5qcGciLCJ1c2VyTmFtZSI6ImEzYTJmYWU1NTUzOTRmMjc4MDM4YzAwNThmNWM5ZDE5IiwicGhvbmVOdW1iZXIiOiIxMjM0NTY3OCIsImFuc3dlckNvdW50IjoyLCJjcmVhdGVUaW1lIjoxNjY4Mjc0MDUyMDAwLCJpZCI6MywiZW1haWwiOiIyMjcyMzkzMTE1QHFxLmNvbSIsInN0YXR1cyI6MCwiZmF2b3JpdGVDb3VudCI6MSwianRpIjoiMyIsInN1YiI6ImEzYTJmYWU1NTUzOTRmMjc4MDM4YzAwNThmNWM5ZDE5IiwiZXhwIjoxNjg1MTk3NTM1fQ.gGJpci-75IcuhHHqCxBbcnLvJcsZM6YVzbWh9Ik6s5E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/favorite/cancel/?type=article&type_id=12",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"favorite",
+								"cancel",
+								""
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "article"
+								},
+								{
+									"key": "type_id",
+									"value": "12"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "关注列表",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJmb2xsb3dDb3VudCI6MywiZ2VuZGVyIjowLCJuaWNrTmFtZSI6IuahnOiKseiQvSIsImJnSW1nIjoiaHR0cDovL2h1YWx1b3Nha3VyYS50b3AvYmFja2dyb3VkL3JpdmVyLmpwZyIsImFydGljbGVDb3VudCI6OCwiYXZhdGFyIjoiaHR0cDovL2h1YWx1b3Nha3VyYS50b3AvYXZhdGFyLyVFNSVBNCU4RiVFNiU5NyVBNTIuanBnIiwidXNlck5hbWUiOiI1ZGI5YWY0ZDVmZGM0YzdjYWNkNTRiZDVmMTBlMWJlMCIsInBob25lTnVtYmVyIjoiMTUxNzM2MjMxNDUiLCJhbnN3ZXJDb3VudCI6MiwiY3JlYXRlVGltZSI6MTY2NzA2MTgwNzAwMCwiaWQiOjEsImVtYWlsIjoiaHVhbHVvc2FrdXJhQDE2My5jb20iLCJpbnRyb2R1Y3Rpb24iOiLkvYbooYzlpb3kuovvvIzojqvpl67liY3nqIsiLCJzdGF0dXMiOjAsImZhdm9yaXRlQ291bnQiOjIsImp0aSI6IjEiLCJzdWIiOiI1ZGI5YWY0ZDVmZGM0YzdjYWNkNTRiZDVmMTBlMWJlMCIsImV4cCI6MTY3MTUwODQyMH0.ChYn-T0aVS4ueKAgTKFvgJMc_f6T9IKJUoexQ_N8o8A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "101.43.235.136:8080/follow/list/1",
+							"host": [
+								"101",
+								"43",
+								"235",
+								"136"
+							],
+							"port": "8080",
+							"path": [
+								"follow",
+								"list",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "收藏列表",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/favorite/list/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"favorite",
+								"list",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "回答列表",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "101.43.235.136:8080/answer/list/2",
+							"host": [
+								"101",
+								"43",
+								"235",
+								"136"
+							],
+							"port": "8080",
+							"path": [
+								"answer",
+								"list",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "文章列表",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "101.43.235.136:8080/article/list/1",
+							"host": [
+								"101",
+								"43",
+								"235",
+								"136"
+							],
+							"port": "8080",
+							"path": [
+								"article",
+								"list",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "提问列表",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "101.43.235.136:8080/question/list/1",
+							"host": [
+								"101",
+								"43",
+								"235",
+								"136"
+							],
+							"port": "8080",
+							"path": [
+								"question",
+								"list",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "判断是否关注",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "5db9af4d5fdc4c7cacd54bd5f10e1be0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "101.43.235.136:8080/follow/judge/2",
+							"host": [
+								"101",
+								"43",
+								"235",
+								"136"
+							],
+							"port": "8080",
+							"path": [
+								"follow",
+								"judge",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "判断是否收藏",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJmb2xsb3dDb3VudCI6MywiZ2VuZGVyIjowLCJuaWNrTmFtZSI6IuahnOiKseiQvSIsImJnSW1nIjoiaHR0cDovL2h1YWx1b3Nha3VyYS50b3AvYmFja2dyb3VkL3JpdmVyLmpwZyIsImFydGljbGVDb3VudCI6OCwiYXZhdGFyIjoiaHR0cDovL2h1YWx1b3Nha3VyYS50b3AvYXZhdGFyLyVFNSVBNCU4RiVFNiU5NyVBNTIuanBnIiwidXNlck5hbWUiOiI1ZGI5YWY0ZDVmZGM0YzdjYWNkNTRiZDVmMTBlMWJlMCIsInBob25lTnVtYmVyIjoiMTUxNzM2MjMxNDUiLCJhbnN3ZXJDb3VudCI6MiwiY3JlYXRlVGltZSI6MTY2NzA2MTgwNzAwMCwiaWQiOjEsImVtYWlsIjoiaHVhbHVvc2FrdXJhQDE2My5jb20iLCJpbnRyb2R1Y3Rpb24iOiLkvYbooYzlpb3kuovvvIzojqvpl67liY3nqIsiLCJzdGF0dXMiOjAsImZhdm9yaXRlQ291bnQiOjIsImp0aSI6IjEiLCJzdWIiOiI1ZGI5YWY0ZDVmZGM0YzdjYWNkNTRiZDVmMTBlMWJlMCIsImV4cCI6MTY3MTUwODQyMH0.ChYn-T0aVS4ueKAgTKFvgJMc_f6T9IKJUoexQ_N8o8A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/favorite/judge/article/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"favorite",
+								"judge",
+								"article",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "搜索接口",
+			"item": [
+				{
+					"name": "自动补全",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/es/suggest?prefix=wang",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"es",
+								"suggest"
+							],
+							"query": [
+								{
+									"key": "prefix",
+									"value": "wang"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "高亮搜索",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/es/search?word=如何",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"es",
+								"search"
+							],
+							"query": [
+								{
+									"key": "word",
+									"value": "如何"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
